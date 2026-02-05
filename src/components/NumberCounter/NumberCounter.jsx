@@ -11,7 +11,7 @@ const NumberCounter = () => {
                     enableScrollSpy={true} 
                     scrollSpyDelay={true} />  
                 </p>
-                <p>Expert tutors</p>
+                <p>Expert </p>
 
             </div>
             <div className="flex flex-col items-center justify-center">
@@ -37,7 +37,7 @@ const NumberCounter = () => {
                     scrollSpyDelay={true}
                     /> 
                 </p>
-                <p>Courses</p>
+                <p>Opportunities</p>
 
             </div>
             <div className="flex flex-col items-center justify-center">
