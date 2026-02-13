@@ -1,9 +1,16 @@
 import bcrypt from "bcryptjs"; //library to hash passwords
 import jwt from "jsonwebtoken"; //to get JWt token -> jab koi user login krta hai, token proves theyre logged in
 import User from "../models/userModel.js"; //mongodb collection
+
 const register = async (req, res) => {
     try{
         const {username, password, role} = req.body; //destructring values from request body
+        const user = await User.findOne({username}); //searches mongodb for a user with that username
+
+        if (user){
+            return res.status(400).json({message: `User with this username already exists. Please choose another name.`});
+        }
+        
         const hashedPassword = await bcrypt.hash(password, 10); //hash pass before saving, so they arent saved in plain text
         const newUser = new User({username, password: hashedPassword, role}); //creating new user using User Model
         await newUser.save(); //save user to mongodb
