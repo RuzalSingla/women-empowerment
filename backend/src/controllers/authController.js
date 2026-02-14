@@ -4,7 +4,7 @@ import User from "../models/userModel.js"; //mongodb collection
 
 const register = async (req, res) => {
     try{
-        const {username, password, role} = req.body; //destructring values from request body
+        const {username,email, password, role} = req.body; //destructring values from request body
         const user = await User.findOne({username}); //searches mongodb for a user with that username
 
         if (user){
@@ -12,7 +12,7 @@ const register = async (req, res) => {
         }
         
         const hashedPassword = await bcrypt.hash(password, 10); //hash pass before saving, so they arent saved in plain text
-        const newUser = new User({username, password: hashedPassword, role}); //creating new user using User Model
+        const newUser = new User({username,email, password: hashedPassword, role}); //creating new user using User Model
         await newUser.save(); //save user to mongodb
         res                   //sends response back
             .status(201)      //201-http status for successful creation
