@@ -3,6 +3,7 @@ import { NavbarMenu } from "../../data.js";
 import { MdComputer, MdMenu } from "react-icons/md";
 import { motion } from "framer-motion";
 import ResponsiveMenu from "./ResponsiveMenu";
+import {Link} from "react-router-dom";
 
 
 
@@ -49,9 +50,8 @@ const Navbar = () => {
         </div>
         {/*CTA  Button section */}
         <div className="hidden lg:block space-x-6">
-            
-            <button className="font-semibold">Sign in</button>
-            <button className="text-white bg-secondary font-semibold rounded-full px-6 py-2">Register</button>
+            <Link to="/login" className="font-semibold">Login</Link>
+            <Link to="/register" className="text-white !bg-secondary font-semibold rounded-full px-6 py-2">Register</Link>
         </div>
 
     

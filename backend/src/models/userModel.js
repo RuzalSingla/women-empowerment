@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({ //creating a schema/blueprint for the d
     role:  {
         type: String,
         required: true,
-        enum: ["org", "user"], //restricts values
+        enum: ["organisation", "user"], //restricts values
     },
 }, {
     timestamps: true, //gives createdAt, updatedAt
