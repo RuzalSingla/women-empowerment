@@ -7,20 +7,38 @@ import Testimonials from "./components/Testimonials/Testimonials";
 import Mentors from "./components/Mentors/Mentors";
 import FAQ from "./components/FAQ/FAQ";
 import Footer from "./components/Footer/Footer";
+import { Routes, Route } from "react-router-dom";
+import LoginPage from "./components/Login/LoginPage";
+import Dashboard from "./components/Dashboard/Dashboard";
+import RegisterPage from "./components/Login/RegisterPage";
 
+const App = () => {
+  return (
+    <main className="overflow-x-hidden">
+      <Navbar />
 
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Hero />
+              <NumberCounter />
+              <WhyChooseUs />
+              <Testimonials />
+              <Mentors />
+              <FAQ />
+              <Footer />
+            </>
+          }
+        />
 
-
-const App=()=>{
-  return <main className="overflow-x-hidden">
-    <Navbar />
-    <Hero />
-    <NumberCounter />
-    <WhyChooseUs />
-    <Testimonials />
-    <Mentors />
-    <FAQ />
-    <Footer />
-  </main>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </main>
+  );
 };
+
 export default App;
