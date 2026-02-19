@@ -19,8 +19,8 @@ export const NavbarMenu=[
 
     {
         id:4,
-        title:"About us",
-        link:"#",
+        title:"Success Stories",
+        link:"/Successstories",
     },
     {
         id:5,

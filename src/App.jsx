@@ -12,6 +12,7 @@ import LoginPage from "./components/Login/LoginPage";
 import Dashboard from "./components/Dashboard/Dashboard";
 import RegisterPage from "./components/Login/RegisterPage";
 import JobPortal from "./components/jobportal/jobportal";
+import SuccessStories from "./components/Successstories/Successstories";
 
 const App = () => {
   return (
@@ -33,7 +34,7 @@ const App = () => {
             </>
           }
         />
-         
+         <Route path="/successstories" element={<SuccessStories />} />
         <Route path="/jobs" element={<JobPortal />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
