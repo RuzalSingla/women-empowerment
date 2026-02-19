@@ -11,6 +11,7 @@ import { Routes, Route } from "react-router-dom";
 import LoginPage from "./components/Login/LoginPage";
 import Dashboard from "./components/Dashboard/Dashboard";
 import RegisterPage from "./components/Login/RegisterPage";
+import JobPortal from "./components/jobportal/jobportal";
 
 const App = () => {
   return (
@@ -32,7 +33,8 @@ const App = () => {
             </>
           }
         />
-
+         
+        <Route path="/jobs" element={<JobPortal />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/dashboard" element={<Dashboard />} />

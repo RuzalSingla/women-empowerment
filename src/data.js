@@ -7,8 +7,8 @@ export const NavbarMenu=[
 
     {
         id:2,
-        title:"Announcements",
-        link:"#",
+        title:"Work Hub",
+        link:"/jobs",
     },
 
     {
