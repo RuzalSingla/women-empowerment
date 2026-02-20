@@ -27,7 +27,7 @@ const JobPortal = () => {
 
          
         <motion.div 
-            variants={SlideLeft(0.1)}   // adjust delay for each card
+            variants={SlideLeft(0.3)}   // adjust 
          initial="hidden"
          whileInView="visible"
          viewport={{ once: true }} 
@@ -48,7 +48,7 @@ const JobPortal = () => {
 
         {/* Home Cook */}
         <motion.div 
-         variants={SlideLeft(0.1)}   // adjust delay for each card
+         variants={SlideLeft(0.6)}   // adjust 
          initial="hidden"
          whileInView="visible"
          viewport={{ once: true }} 
@@ -69,7 +69,7 @@ const JobPortal = () => {
 
         {/* House Helper */}
         <motion.div 
-         variants={SlideLeft(0.1)}   // adjust delay for each card
+         variants={SlideLeft(0.9)}   // adjust 
          initial="hidden"
          whileInView="visible"
          viewport={{ once: true }} 
@@ -94,7 +94,7 @@ const JobPortal = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
         {/* Baking Helper */}
         <motion.div 
-          variants={SlideLeft(0.1)}   // adjust delay for each card
+          variants={SlideLeft(0.4)}   // adjust 
          initial="hidden"
          whileInView="visible"
          viewport={{ once: true }} 
@@ -114,7 +114,7 @@ const JobPortal = () => {
 
         {/* Packing Assistant */}
         <motion.div 
-         variants={SlideLeft(0.1)}   // adjust delay for each card
+         variants={SlideLeft(0.5)}   // adjust 
          initial="hidden"
          whileInView="visible"
          viewport={{ once: true }} 
@@ -134,7 +134,7 @@ const JobPortal = () => {
 
         {/* Delivery Person */}
         <motion.div 
-         variants={SlideLeft(0.1)}   // adjust delay for each card
+         variants={SlideLeft(0.6)}   // adjust 
          initial="hidden"
          whileInView="visible"
          viewport={{ once: true }} 
@@ -156,7 +156,7 @@ const JobPortal = () => {
                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
                    {/* Freelance Designer */}
                  <motion.div
-                  variants={SlideLeft(0.1)}   // adjust delay for each card
+                  variants={SlideLeft(0.1)}   // adjust 
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}  className="p-6 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 bg-white">
@@ -175,7 +175,7 @@ const JobPortal = () => {
  
              {/* Social Media Assistant */}
                <motion.div
-                variants={SlideLeft(0.1)}   // adjust delay for each card
+                variants={SlideLeft(0.2)}   // adjust 
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }} 
@@ -196,7 +196,7 @@ const JobPortal = () => {
 
              {/* Event Organizer */}
              <motion.div
-               variants={SlideLeft(0.1)}   // adjust delay for each card
+               variants={SlideLeft(0.3)}   // adjust 
                 initial="hidden"
                 whileInView="visible"
              viewport={{ once: true }} 
