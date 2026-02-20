@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { 
   FaChalkboardTeacher, 
   FaUtensils, 
@@ -14,6 +14,47 @@ import { SlideLeft } from "../../utility/animation";
 
 
 const JobPortal = () => {
+  const [selectedJob, setSelectedJob] = useState(null);
+  const [appliedJobs, setAppliedJobs] = useState([]);
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    address: "",
+    experience: "",
+    skills: "",
+    availability: "",
+    whyHire: "",
+  });
+
+  const handleApplyClick = (jobTitle) => {
+    setSelectedJob(jobTitle);
+  };
+
+  const handleChange = (e) => {
+  setFormData({
+    ...formData,
+    [e.target.name]: e.target.value,
+  });
+};
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+
+  setAppliedJobs((prev) => [...prev, selectedJob]);
+  setSelectedJob(null);
+
+  setFormData({
+    name: "",
+    phone: "",
+    email: "",
+    address: "",
+    experience: "",
+    skills: "",
+    availability: "",
+    whyHire: "",
+  });
+};
   return (
     <div className="container py-10">
       <h1 className="text-3xl font-bold text-center mb-6 ">Work hub</h1>
@@ -41,9 +82,20 @@ const JobPortal = () => {
             Help children or adults learn subjects you are good at. Flexible hours, can work from home.
           </p>
           <p className="text-sm text-gray-400 mb-4">Part-time | Local | ₹200/hr</p>
-          <button className="w-full !bg-secondary text-white font-semibold rounded-full py-2 hover:bg-pink-700 transition">
+          {/* <button className="w-full !bg-secondary text-white font-semibold rounded-full py-2 hover:bg-pink-700 transition">
             Apply Now
-          </button>
+          </button> */}
+         <button
+          onClick={() => handleApplyClick("Tutor")}
+          disabled={appliedJobs.includes("Tutor")}
+          className={`w-full py-2 rounded-full font-semibold transition duration-300 ${
+            appliedJobs.includes("Tutor")
+              ? "bg-green-500 text-white cursor-not-allowed"
+              : "bg-pink-600 text-white hover:bg-pink-700 active:scale-95"
+          }`}
+        >
+          {appliedJobs.includes("Tutor") ? "Applied" : "Apply Now"}
+        </button>
         </motion.div>
 
         {/* Home Cook */}
@@ -62,8 +114,19 @@ const JobPortal = () => {
             Cook delicious meals for your community or online orders. Earn while working flexible hours.
           </p>
           <p className="text-sm text-gray-400 mb-4">Flexible Hours | Local | ₹250/day</p>
-          <button className="w-full !bg-secondary text-white font-semibold rounded-full py-2 hover:bg-pink-700 transition">
+          {/* <button className="w-full !bg-secondary text-white font-semibold rounded-full py-2 hover:bg-pink-700 transition">
             Apply Now
+          </button> */}
+          <button
+            onClick={() => handleApplyClick("Home Cook")}
+            disabled={appliedJobs.includes("Home Cook")}
+            className={`w-full py-2 rounded-full font-semibold transition duration-300 ${
+              appliedJobs.includes("Home Cook")
+                ? "bg-green-500 text-white cursor-not-allowed"
+                : "bg-pink-600 text-white hover:bg-pink-700 active:scale-95"
+            }`}
+          >
+            {appliedJobs.includes("Home Cook") ? "Applied" : "Apply Now"}
           </button>
         </motion.div>
 
@@ -84,9 +147,20 @@ const JobPortal = () => {
             Assist households with cleaning, organizing, and daily chores. Good earning with flexible timing.
           </p>
           <p className="text-sm text-gray-400 mb-4">Part-time | Local | ₹150/day</p>
-          <button className="w-full !bg-secondary text-white font-semibold rounded-full py-2 hover:bg-pink-700 transition">
+          {/* <button className="w-full !bg-secondary text-white font-semibold rounded-full py-2 hover:bg-pink-700 transition">
             Apply Now
-          </button>
+          </button> */}
+          <button
+            onClick={() => handleApplyClick("House Helper")}
+            disabled={appliedJobs.includes("House Helper")}
+            className={`w-full py-2 rounded-full font-semibold transition duration-300 ${
+              appliedJobs.includes("House Helper")
+                ? "bg-green-500 text-white cursor-not-allowed"
+                : "bg-pink-600 text-white hover:bg-pink-700 active:scale-95"
+            }`}
+          >
+            {appliedJobs.includes("House Helper") ? "Applied" : "Apply Now"}
+        </button>
         </motion.div>
       </div>
 
@@ -107,8 +181,19 @@ const JobPortal = () => {
             Assist bakers in preparing dough, decorating cakes, and managing kitchen tasks. Flexible part-time work.
           </p>
           <p className="text-sm text-gray-400 mb-4">Part-time | Local | ₹200/day</p>
-          <button className="w-full !bg-secondary text-white font-semibold rounded-full py-2 hover:bg-pink-700 transition">
+          {/* <button className="w-full !bg-secondary text-white font-semibold rounded-full py-2 hover:bg-pink-700 transition">
             Apply Now
+          </button> */}
+          <button
+            onClick={() => handleApplyClick("Baking Helper")}
+            disabled={appliedJobs.includes("Baking Helper")}
+            className={`w-full py-2 rounded-full font-semibold transition duration-300 ${
+              appliedJobs.includes("Baking Helper")
+                ? "bg-green-500 text-white cursor-not-allowed"
+                : "bg-pink-600 text-white hover:bg-pink-700 active:scale-95"
+            }`}
+          >
+            {appliedJobs.includes("Baking Helper") ? "Applied" : "Apply Now"}
           </button>
         </motion.div>
 
@@ -127,8 +212,19 @@ const JobPortal = () => {
             Help businesses pack products for shipping or events. Simple tasks with flexible timing and decent pay.
           </p>
           <p className="text-sm text-gray-400 mb-4">Part-time | Local | ₹150/day</p>
-          <button className="w-full !bg-secondary text-white font-semibold rounded-full py-2 hover:bg-pink-700 transition">
+          {/* <button className="w-full !bg-secondary text-white font-semibold rounded-full py-2 hover:bg-pink-700 transition">
             Apply Now
+          </button> */}
+          <button
+            onClick={() => handleApplyClick("Packing Assistant")}
+            disabled={appliedJobs.includes("Packing Assistant")}
+            className={`w-full py-2 rounded-full font-semibold transition duration-300 ${
+              appliedJobs.includes("Packing Assistant")
+                ? "bg-green-500 text-white cursor-not-allowed"
+                : "bg-pink-600 text-white hover:bg-pink-700 active:scale-95"
+            }`}
+          >
+            {appliedJobs.includes("Packing Assistant") ? "Applied" : "Apply Now"}
           </button>
         </motion.div>
 
@@ -147,8 +243,19 @@ const JobPortal = () => {
             Deliver packages or food locally. Flexible hours and a great way to earn extra income.
           </p>
           <p className="text-sm text-gray-400 mb-4">Part-time | Local | ₹250/day</p>
-          <button className="w-full !bg-secondary text-white font-semibold rounded-full py-2 hover:bg-pink-700 transition">
+          {/* <button className="w-full !bg-secondary text-white font-semibold rounded-full py-2 hover:bg-pink-700 transition">
             Apply Now
+          </button> */}
+          <button
+            onClick={() => handleApplyClick("Delivery Person")}
+            disabled={appliedJobs.includes("Delivery Person")}
+            className={`w-full py-2 rounded-full font-semibold transition duration-300 ${
+              appliedJobs.includes("Delivery Person")
+                ? "bg-green-500 text-white cursor-not-allowed"
+                : "bg-pink-600 text-white hover:bg-pink-700 active:scale-95"
+            }`}
+          >
+            {appliedJobs.includes("Delivery Person") ? "Applied" : "Apply Now"}
           </button>
         </motion.div>
       </div>
@@ -168,8 +275,19 @@ const JobPortal = () => {
                          Create graphics, posters, or social media content for local businesses or online clients. Work from home with flexible hours.
                       </p>
                       <p className="text-sm text-gray-400 mb-4">Part-time | Remote | ₹250/day</p>
-                  <button className="w-full !bg-secondary text-white font-semibold rounded-full py-2 hover:bg-pink-700 transition">
+                  {/* <button className="w-full !bg-secondary text-white font-semibold rounded-full py-2 hover:bg-pink-700 transition">
                  Apply Now
+                  </button> */}
+                  <button
+                    onClick={() => handleApplyClick("Freelance Designer")}
+                    disabled={appliedJobs.includes("Freelance Designer")}
+                    className={`w-full py-2 rounded-full font-semibold transition duration-300 ${
+                      appliedJobs.includes("Freelance Designer")
+                        ? "bg-green-500 text-white cursor-not-allowed"
+                        : "bg-pink-600 text-white hover:bg-pink-700 active:scale-95"
+                    }`}
+                  >
+                    {appliedJobs.includes("Freelance Designer") ? "Applied" : "Apply Now"}
                   </button>
                </motion.div>
  
@@ -189,8 +307,19 @@ const JobPortal = () => {
                    Help businesses manage their social media accounts, create posts, and engage with followers. Flexible online work.
                </p>
                <p className="text-sm text-gray-400 mb-4">Part-time | Remote | ₹200/day</p>
-              <button className="w-full !bg-secondary text-white font-semibold rounded-full py-2 hover:bg-pink-700 transition">
+              {/* <button className="w-full !bg-secondary text-white font-semibold rounded-full py-2 hover:bg-pink-700 transition">
               Apply Now
+              </button> */}
+              <button
+                onClick={() => handleApplyClick("Social Media Assistant")}
+                disabled={appliedJobs.includes("Social Media Assistant")}
+                className={`w-full py-2 rounded-full font-semibold transition duration-300 ${
+                  appliedJobs.includes("Social Media Assistant")
+                    ? "bg-green-500 text-white cursor-not-allowed"
+                    : "bg-pink-600 text-white hover:bg-pink-700 active:scale-95"
+                }`}
+              >
+                {appliedJobs.includes("Social Media Assistant") ? "Applied" : "Apply Now"}
               </button>
             </motion.div>
 
@@ -209,12 +338,143 @@ const JobPortal = () => {
                 Assist in planning and organizing local events, parties, or community programs. Flexible part-time work with good exposure.
                </p>
               <p className="text-sm text-gray-400 mb-4">Part-time | Local | ₹300/day</p>
-             <button className="w-full !bg-secondary text-white font-semibold rounded-full py-2 hover:bg-pink-700 transition">
+             {/* <button className="w-full !bg-secondary text-white font-semibold rounded-full py-2 hover:bg-pink-700 transition">
               Apply Now
-             </button>
+             </button> */}
+             <button
+                onClick={() => handleApplyClick("Event Organizer")}
+                disabled={appliedJobs.includes("Event Organizer")}
+                className={`w-full py-2 rounded-full font-semibold transition duration-300 ${
+                  appliedJobs.includes("Event Organizer")
+                    ? "bg-green-500 text-white cursor-not-allowed"
+                    : "bg-pink-600 text-white hover:bg-pink-700 active:scale-95"
+                }`}
+              >
+                {appliedJobs.includes("Event Organizer") ? "Applied" : "Apply Now"}
+              </button>
            </motion.div>
         </div>
+        {selectedJob && (
+  <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
+    
+    <div className="bg-white w-full max-w-2xl rounded-2xl p-8 shadow-2xl relative overflow-y-auto max-h-[90vh]">
+      
+      {/* Close Button */}
+      <button
+        onClick={() => setSelectedJob(null)}
+        className="absolute top-4 right-4 text-gray-500 hover:text-red-500 text-xl"
+      >
+        ✕
+      </button>
 
+      <h2 className="text-2xl font-bold mb-6">
+        Apply for {selectedJob}
+      </h2>
+
+      <form onSubmit={handleSubmit} className="space-y-4">
+
+        <input
+          type="text"
+          name="name"
+          placeholder="Full Name"
+          value={formData.name}
+          onChange={handleChange}
+          required
+          className="w-full border p-3 rounded-lg"
+        />
+
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Phone Number"
+          value={formData.phone}
+          onChange={handleChange}
+          required
+          className="w-full border p-3 rounded-lg"
+        />
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Email Address"
+          value={formData.email}
+          onChange={handleChange}
+          required
+          className="w-full border p-3 rounded-lg"
+        />
+
+        <textarea
+          name="address"
+          placeholder="Address"
+          value={formData.address}
+          onChange={handleChange}
+          required
+          rows="2"
+          className="w-full border p-3 rounded-lg"
+        />
+
+        <textarea
+          name="experience"
+          placeholder="Previous Experience (if any)"
+          value={formData.experience}
+          onChange={handleChange}
+          rows="2"
+          className="w-full border p-3 rounded-lg"
+        />
+
+        <textarea
+          name="skills"
+          placeholder="Skills (e.g. Cooking, Teaching, Designing...)"
+          value={formData.skills}
+          onChange={handleChange}
+          rows="2"
+          className="w-full border p-3 rounded-lg"
+        />
+
+        <select
+          name="availability"
+          value={formData.availability}
+          onChange={handleChange}
+          required
+          className="w-full border p-3 rounded-lg"
+        >
+          <option value="">Select Availability</option>
+          <option value="Morning">Morning</option>
+          <option value="Afternoon">Afternoon</option>
+          <option value="Evening">Evening</option>
+          <option value="Full Time">Full Time</option>
+        </select>
+
+        <textarea
+          name="whyHire"
+          placeholder="Why should we hire you?"
+          value={formData.whyHire}
+          onChange={handleChange}
+          rows="3"
+          className="w-full border p-3 rounded-lg"
+        />
+
+        <div className="flex justify-end gap-4 pt-4">
+          <button
+            type="button"
+            onClick={() => setSelectedJob(null)}
+            className="px-6 py-2 bg-gray-400 text-white rounded-full"
+          >
+            Cancel
+          </button>
+
+          <button
+            type="submit"
+            className="px-6 py-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition"
+          >
+            Submit Application
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+)}
     </div>
   );
 };
