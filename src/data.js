@@ -14,7 +14,7 @@ export const NavbarMenu=[
     {
         id:3,
         title:"Resources",
-        link:"#",
+        link:"/resource",
     },
 
     {
