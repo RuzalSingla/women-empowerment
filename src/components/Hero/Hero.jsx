@@ -24,7 +24,7 @@ const Hero = () => {
 
 
                 
-                className="text-5xl font-semibold lg:text-6xl !leading-tight">Igniting Strength. <span className="text-primary">Inspiring Change.</span></motion.h1>
+                className="text-5xl font-semibold lg:text-6xl !leading-tight">Igniting Strength. <span className="!text-primary">Inspiring Change.</span></motion.h1>
                 <motion.p
                   variants={SlideRight(0.8)}
                  initial="hidden"
